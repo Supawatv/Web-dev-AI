@@ -1,0 +1,54 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+	width: 100%;
+	height: 10%;
+	background-color: red;
+}
+
+#app {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+
+#draw {
+	width: 66.6%;
+	height: 100%;
+	background-color: lightgray;
+	overflow: hidden;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#code {
+	width: 33.3%;
+	height: 100%;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+}
+
+#HTML,
+#CSS {
+	flex-grow: 1;
+	font-family: 'PT Mono', monospace;
+	margin: 0% 2.5%;
+	background-color: lightgrey;
+	padding: 2.5%;
+}
+
+#code h2 {
+	margin-top: 2.5%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+
+
+#debbuger{
+	position: fixed;
+}
