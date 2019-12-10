@@ -14,11 +14,11 @@ function setConstant() {
 async function init() {
 	const video = document.getElementById("debugger")
 	console.log("running init...")
-	const modelURL = "model.json";
+	const ModelURL = "model.json";
 	const metadataURL = "metadata.json";
 
-	model = await tmImage.load(modelURL, metadataURL);
-	maxPredictions = model.getTotalClasses();
+	Model = await tmImage.load(ModelURL, metadataURL);
+	maxPredictions = Model.getTotalClasses();
 	console.log("init ran...entering loop");
 	window.requestAnimationFrame(loop);
 
@@ -39,7 +39,7 @@ async function loop() {
 
 async function predict() {
 	// predict can take in an image, video or canvas html element
-	const prediction = await model.predict(canvas, false);
+	const prediction = await Model.predict(canvas, false);
 	for (let i = 0; i < maxPredictions; i++) {
 		const classPrediction =
 			prediction[i].className + ": " + prediction[i].probability.toFixed(
@@ -50,8 +50,8 @@ async function predict() {
 }
 
 
-function mouseUp() {
-	console.log("mouseup")
-	a = model.predict(document.getElementById("defaultCanvas0"))
-	console.log(a);
-}
+// function mouseUp() {
+// 	console.log("mouseup")
+// 	a = Model.predict(document.getElementById("defaultCanvas0"))
+// 	console.log(a);
+// }
