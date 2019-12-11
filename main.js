@@ -1,4 +1,6 @@
-console.log("fuck this shit");
+cur_predict = [];
+
+// Teachable Machine Backend
 const canvas = document.getElementById("defaultCanvas0");
 
 setTimeout(function() {
@@ -19,14 +21,8 @@ async function init() {
 
 	model = await tmImage.load(modelURL, metadataURL);
 	maxPredictions = model.getTotalClasses();
+	check_ai()
 	console.log("init ran...entering loop");
-	window.requestAnimationFrame(loop);
-
-
-	labelContainer = document.getElementById("label-container");
-	for (let i = 0; i < maxPredictions; i++) { // and class labels
-		labelContainer.appendChild(document.createElement("div"))
-	};
 }
 
 
@@ -37,21 +33,28 @@ async function loop() {
 	window.requestAnimationFrame(loop);
 }
 
-async function predict() {
-	// predict can take in an image, video or canvas html element
-	const prediction = await model.predict(canvas, false);
-	for (let i = 0; i < maxPredictions; i++) {
-		const classPrediction =
-			prediction[i].className + ": " + prediction[i].probability.toFixed(
-				2);
-		labelContainer.childNodes[i].innerHTML = classPrediction;
-		console.log(classPrediction);
-	}
+
+// Check Teachable machine for prediction; return prediction
+async function check_ai() {
+	results = await model.predict(document.getElementById(
+		"defaultCanvas0"))
+	// Sort Results
+	byProb = results;
+	byProb.sort(function(a, b) {
+		return b.probability.toFixed(2) - a.probability.toFixed(2);
+	});
+	console.log('by p:');
+	console.log(byProb);
+
+	cur_predict = byProb;
+	return byProb;
 }
 
-
-function mouseUp() {
-	console.log("mouseup")
-	a = model.predict(document.getElementById("defaultCanvas0"))
-	console.log(a);
+// FrontEnd
+function update_prediction() {
+	modal_class = document.getElementById("predict_class")
+	console.log("using new method")
+	check_ai();
+	result = cur_predict;
+	modal_class.innerHTML = result[0].className;
 }

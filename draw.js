@@ -42,6 +42,8 @@ function mouseReleased() {
 		render();
 	}
 
+	update_prediction();
+
 
 
 }
