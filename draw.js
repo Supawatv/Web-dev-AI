@@ -16,6 +16,7 @@ function setup() {
 
 function draw() {
 	render();
+
 }
 
 function mousePressed() {
@@ -31,20 +32,24 @@ function mouseDragged() {
 		rect(create_X, create_Y, mouseX - create_X, mouseY - create_Y)
 	} else {
 		print("error1")
+		str =
+			'Sorry. No more than 4 rectanges for now. Please reset ("R").'
+		update_modal(str);
+		update_focus("on");
+		return
 	}
 }
 
-function mouseReleased() {
+async function mouseReleased() {
 	draw_div();
 	if (children.length < max_child) {
 		create_child(create_X, create_Y, mouseX - create_X, mouseY -
 			create_Y)
 		render();
+		await update_prediction();
+	} else {
+		update_focus("off");
 	}
-
-	update_prediction();
-
-
 
 }
 
@@ -102,7 +107,9 @@ function draw_div() {
 function keyTyped() {
 	if (key === 'r') {
 		setup();
+		update_prediction();
 	} else if (key === 's') {
 		save();
+		update_prediction();
 	}
 }

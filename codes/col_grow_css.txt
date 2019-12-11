@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  background-color: lightgrey;
+  padding: 1%;
+}
+
+.item-1 {
+  background-color: white;
+  width: 33%;
+  height: 100%;
+}
+
+.item-2 {
+  background-color: white;
+  flex-grow: 1;
+  height: 100%;
+}
