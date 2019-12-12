@@ -33,7 +33,7 @@ async function init() {
 	// Make a prediction and update modal
 	check_ai();
 	update_modal(
-		"AI is loaded. Click and drag to draw in the: ");
+		"Click and drag to draw in the: ");
 	// Turn off splash loading screen
 	update_overlay("off");
 }
