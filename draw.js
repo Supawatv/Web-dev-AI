@@ -45,6 +45,11 @@ function draw() {
 
 }
 
+function touchStarted() {
+	create_X = mouseX;
+	create_Y = mouseY;
+}
+
 // Controller 
 function mousePressed() {
 	// Records where mouse is pressed
