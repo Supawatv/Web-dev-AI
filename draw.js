@@ -21,7 +21,7 @@ function setup() {
 
 	// Responsive design for mobile
 	if (is_mobile() == true) {
-		display_ratio = .35;
+		display_ratio = .31;
 		update_UI("modal2", "Tap here to reset.")
 	} else {
 		display_ratio = .31;
@@ -35,8 +35,10 @@ function setup() {
 
 // Ensure Responsiveness to screen size change
 function windowResized() {
-	setup();
-	update_prediction();
+	if (is_mobile == false) {
+		setup();
+		update_prediction();
+	}
 }
 
 // Update MVC view
