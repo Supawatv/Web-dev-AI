@@ -22,8 +22,8 @@ function setConstant() {
 async function init() {
 	const video = document.getElementById("debugger")
 	console.log("running init...")
-	const ModelURL = "model.json";
-	const metadataURL = "metadata.json";
+	const ModelURL = "Assets/AI/model.json";
+	const metadataURL = "Assets/AI/metadata.json";
 	update_modal("Loading AI please wait...")
 
 	// Wait for Model to load
@@ -79,8 +79,8 @@ function update_modal(Str) {
 // based on the top prediction
 function update_code(top_predict) {
 	// Select element
-	HTML_code = "codes/" + top_predict + "_html.txt";
-	CSS_code = "codes/" + top_predict + "_css.txt";
+	HTML_code = "Assets/codes/" + top_predict + "_html.txt";
+	CSS_code = "Assets/codes/" + top_predict + "_css.txt";
 
 	// Assign the right code
 	$(document).ready(function() {
@@ -118,7 +118,7 @@ function update_focus(state) {
 
 // Update prediction icon on the bottom modal
 function update_mini(top_predict) {
-	Str = "icons/" + top_predict + ".png"
+	Str = "Assets/icons/" + top_predict + ".png"
 	$(document).ready(function() {
 		$("#mini").attr("src", Str);
 	});
@@ -143,7 +143,7 @@ function update_suggest_add() {
 		if (className == "empty") {
 			continue;
 		}
-		img_path = "icons/" + className + ".png";
+		img_path = "Assets/icons/" + className + ".png";
 		index = "s" + i;
 		elem = '<img class="suggest" id="_ID_" src="_SRC_" />';
 		elem = elem.replace("_ID_", index);
