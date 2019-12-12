@@ -8,7 +8,7 @@ max_child = 4; //determines max rectanges drawn
 
 // Check if mobile device
 function is_mobile() {
-	if (windowWidth < 700) {
+	if (windowWidth < 750) {
 		return true;
 	} else {
 		return false;

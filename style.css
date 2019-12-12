@@ -187,7 +187,7 @@ embed {
 /* Mobile version */
 /* Honestly don't know why but I need points */
 /* for this responsive. */
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
   /* Check */
   #overlay2{
   	width: 100%;
