@@ -213,7 +213,7 @@ embed {
 
   #UI{
   	width: 100%;
-  	height: auto;
+  	height: 80%;
   }
 
   #code{
@@ -226,19 +226,25 @@ embed {
 
   #modal{
   	position: sticky;
-  	top: 40%;
+  	/* top: 40%; */
   	max-width: 80%;
   }
 
   #modal2{
   	position: sticky;
-  	top: 40%;
+  	/* top: 40%; */
   }
 
 
   #bar{
   /* allow for scrolling */
   overflow-x: auto;
+  height: 55px;
+  }
+
+  #bar img{
+  	height: 45px;
+  	width: : auto;
   }
 
   #bar h4{

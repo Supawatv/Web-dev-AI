@@ -8,7 +8,7 @@ max_child = 4; //determines max rectanges drawn
 
 // Check if mobile device
 function is_mobile() {
-	if (windowWidth < 750) {
+	if (displayWidth < 750) {
 		return true;
 	} else {
 		return false;
@@ -21,7 +21,7 @@ function setup() {
 
 	// Responsive design for mobile
 	if (is_mobile() == true) {
-		display_ratio = .85;
+		display_ratio = .31;
 		update_UI("modal2", "Tap here to reset.")
 	} else {
 		display_ratio = .31;

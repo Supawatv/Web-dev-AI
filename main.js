@@ -133,7 +133,7 @@ function update_suggest_add() {
 
 	// If mobile shorten list to 4 predictions
 	if (is_mobile() == true) {
-		cur_predict.length = 5;
+		cur_predict.length = 3;
 	}
 
 	for (i in cur_predict) {
