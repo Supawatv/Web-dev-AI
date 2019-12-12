@@ -21,7 +21,7 @@ function setup() {
 
 	// Responsive design for mobile
 	if (is_mobile() == true) {
-		display_ratio = .31;
+		display_ratio = .35;
 		update_UI("modal2", "Tap here to reset.")
 	} else {
 		display_ratio = .31;
