@@ -1,0 +1,14 @@
+
+.container{
+	display: flex;
+	padding: 1%;
+}
+.col2{
+	display: flex;
+	flex-direction: column;
+	padding: 1%;
+}
+
+.col2 *{
+	margin: 1%;
+}

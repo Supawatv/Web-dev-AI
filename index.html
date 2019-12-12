@@ -7,11 +7,10 @@
     <!-- Load Javascript and p5 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-
+    
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-    
     
     
     <!-- Fonts -->
@@ -19,37 +18,34 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     
-    
-    
   </head>
   
   
   
   <body>
-    
-    
     <!-- Cite -->
     <!-- https://dribbble.com/burhan/projects/522313-Animations -->
+    <!-- Loading screen for AI -->
     <div id="overlay">
       <img src="icons/loader.gif">
       <h2>Loading...</h2>
       <p>Web-Dev-AI is like Pictionary, but for front-end dev.</p>
     </div>
-
+    
+    <!-- To redirect user if mistake -->
     <div id="overlay2"></div>
     
-    
+    <!-- Main App -->
     <div id="app">
       <div id="UI">
         <!-- UI Bar -->
         <div id="bar">
           <h4>Did you mean:</h4>
-          <img id="s1" src="">
-          <img id="s2" src="">
-          <img id="s3" src="">
         </div>
         <!-- Draw App -->
-        <div id="draw"></div>
+        <div id="draw">
+          
+        </div>
         <!-- Modal Pop Up -->
         <div id="modal">
           <span id="predict_class">Loading AI please wait...</span>
@@ -58,34 +54,27 @@
         <p id="modal2">Press "R" to reset.</p>
       </div>
       
-      
-      
-      
+      <!-- Code: HTML & CSS -->
       <div id="code">
         <h2>HTML</h2>
         <div id="HTML">
+          <!-- HTML: Display welcome message -->
           <xmp id="HTML_code">
-Welcome!
-
-Front-end development is not easy. There are millions of properties and tags out there, and choosing the right one isn't easy, especially when it comes to flex-boxes. While flex-boxes are used everywhere in modern web, they are notorius for their crazy amount of properties for even the simplest design pattern.
-
-I've created Web-Dev-AI as a way to quickly and visually to overcome my struggle with flex-boxes. Click and drag to draw a design in the container on the left. Web-Dev-AI will guess what it is and return you the design pattern's HTML and CSS.</xmp>
+          Welcome!
+          
+          Front-end development is not easy. There are millions of properties and tags out there, and choosing the right one isn't easy, especially when it comes to flex-boxes. While flex-boxes are used everywhere in modern web, they are notorius for their crazy amount of properties for even the simplest design pattern.
+          
+          I've created Web-Dev-AI as a way to quickly and visually to overcome my struggle with flex-boxes. Click and drag to draw a design in the container on the left. Web-Dev-AI will guess what it is and return you the design pattern's HTML and CSS.</xmp>
         </div>
-        
         <h2>CSS</h2>
+        <!-- CSS -->
         <div id="CSS">
-          <pre id="CSS_code">Looks empty. 
-
-Click and drag to draw an item.</pre>
-        </div>
-        
-        
+                    <pre id="CSS_code">Looks empty. 
+            
+          Click and drag to draw an item.</pre>
+        </div>        
       </div>
     </div>
-    
-    
-    
-    
     
     
     
@@ -93,7 +82,4 @@ Click and drag to draw an item.</pre>
     <script src="draw.js"></script>
     <script src="main.js"></script>
   </body>
-  
-  
-  
 </html>

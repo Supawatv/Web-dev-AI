@@ -1,40 +1,66 @@
-//setup = intro: Click and drag to add an item in your container
-// error1 = You may only add 4 items to your container
+// Supawat Vitoorapakorn
+// Main P5js code for draw
 
 children = [];
 create_X = 0;
 create_Y = 0;
-max_child = 4;
+max_child = 4; //determines max rectanges drawn
 
+// Check if mobile device
+function is_mobile() {
+	if (windowWidth < 700) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+// Setup canvas
 function setup() {
 	children = [];
-	var myCanvas = createCanvas(450, 450);
-	myCanvas.parent('draw');
+
+	// Responsive design for mobile
+	if (is_mobile() == true) {
+		display_ratio = .85;
+		update_UI("modal2", "Tap here to reset.")
+	} else {
+		display_ratio = .31;
+	}
+	var myCanvas = createCanvas(windowWidth * display_ratio, windowWidth *
+		display_ratio);
+	myCanvas.parent('draw'); //attach canvas
 	draw_div();
 	print("setup")
 }
 
+// Ensure Responsiveness to screen size change
+function windowResized() {
+	setup();
+	update_prediction();
+}
+
+// Update MVC view
 function draw() {
 	render();
 
 }
 
+// Controller 
 function mousePressed() {
+	// Records where mouse is pressed
 	create_X = mouseX;
 	create_Y = mouseY;
-
-
 }
 
+// Controller rectangular item
 function mouseDragged() {
 	if (children.length < max_child) {
 		draw_div();
 		rect(create_X, create_Y, mouseX - create_X, mouseY - create_Y)
 	} else {
-		print("error1")
-		str =
+		Str =
 			'Sorry. No more than 4 rectanges for now. Please reset ("R").'
-		update_modal(str);
+		update_modal(Str);
 		update_focus("on");
 		return
 	}
@@ -46,15 +72,17 @@ async function mouseReleased() {
 		create_child(create_X, create_Y, mouseX - create_X, mouseY -
 			create_Y)
 		render();
+		update_suggest_remove();
 		await update_prediction();
+		update_suggest_add();
 	} else {
 		update_focus("off");
 	}
 
 }
 
-
-
+// inputs coordinates
+// outputs objects in global array
 function create_child(x, y, w, h) {
 	var child = {
 		x: x,
@@ -62,12 +90,10 @@ function create_child(x, y, w, h) {
 		w: w,
 		h: h
 	}
-
 	children.push(child);
 }
 
-
-
+// View rectangle from stored array
 function render() {
 	draw_lightgray();
 	for (i in children) {
@@ -75,7 +101,7 @@ function render() {
 	}
 }
 
-
+// Helper function to change p5js draw
 function draw_lightgray() {
 	noStroke();
 	c = color("lightgray");
@@ -83,7 +109,7 @@ function draw_lightgray() {
 	noStroke();
 }
 
-
+// Draw the background
 function draw_div() {
 	rectMode(RADIUS);
 	background("#d3d3d3");
@@ -103,10 +129,11 @@ function draw_div() {
 	rectMode(CORNER);
 }
 
-
+// Control
 function keyTyped() {
 	if (key === 'r') {
 		setup();
+		update_suggest_remove();
 		update_prediction();
 	} else if (key === 's') {
 		save();
